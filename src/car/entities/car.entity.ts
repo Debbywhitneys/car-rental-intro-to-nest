@@ -30,11 +30,11 @@ export class Car {
   availabilityStatus: boolean;
 
   @Column({ type: 'int', nullable: false, unique: true })
-  locationID: number;
+  location_id: number;
 
   //relationship btn car and locationID to be added later
   @ManyToOne(() => Location, (location) => location.cars)
-  @JoinColumn({ name: 'locationID' })
+  @JoinColumn({ name: 'location_id' })
   location: Location;
 
   //ONE CAR CAN HAVE MANY RESERVATION

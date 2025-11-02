@@ -12,6 +12,8 @@ import { CarModule } from './car/car.module';
 import { DatabaseModule } from './database/database.module';
 import { databaseConfig } from './database/database.config';
 import { ConfigModule } from '@nestjs/config';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -30,6 +32,8 @@ import { ConfigModule } from '@nestjs/config';
     MaintenanceModule,
     RentalModule,
     DatabaseModule,
+    UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

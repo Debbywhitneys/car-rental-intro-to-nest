@@ -2,8 +2,10 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { Reservation } from '../../reservation/entities/reservation.entity';
 import { Rental } from '../../rental/entities/rental.entity';
 import { OneToMany } from 'typeorm';
+import { User } from '../../users/entities/user.entity';
+import { OneToOne } from 'typeorm';
 
-@Entity()
+@Entity('customer')
 export class Customer {
   @PrimaryGeneratedColumn()
   customer_id: number;
@@ -22,6 +24,10 @@ export class Customer {
 
   @Column({ type: 'varchar', length: 255, nullable: false })
   address: string;
+
+  //customer has relationship with users
+  @OneToOne(() => User, (user) => user.customer)
+  user: User;
 
   //ONE CUSTOMER CAN HAVE MANY RESERVATION
   @OneToMany(() => Reservation, (reservation) => reservation.customer)

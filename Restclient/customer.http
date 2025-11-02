@@ -1,0 +1,37 @@
+@baseUrl = http://localhost:3001
+
+POST {{baseUrl}}/customer
+Content-Type: application/json
+
+{
+  "first_name": "John2",
+  "last_name": "Doe2",
+  "email": "john2.doe@example.com",
+  "phone_number": "+1234567890",
+  "address": "123 Main St, City, Country"
+}
+
+### Get customer
+GET {{baseUrl}}/customer
+
+### update customer
+PATCH {{baseUrl}}/customer/1
+Content-Type: application/json
+
+{
+  "first_name": "Debby",
+  "last_name": "Debby",
+  "email": "Debby@example.com",
+  "phone_number": "+123456789",
+  "address": "1234 Main St, City, Country"
+}
+
+### delete customer
+DELETE {{baseUrl}}/customer/1
+
+
+# {
+#   "customer": 1,
+#   "car": 1,
+#   "rentalDate": "2025-10-28"
+# }

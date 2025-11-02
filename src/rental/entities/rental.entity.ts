@@ -25,7 +25,7 @@ export class Rental {
   // MANY Rentals belong to ONE Customer
   @ManyToOne(() => Customer, (customer) => customer.rentals)
   @JoinColumn({ name: 'CustomerID' })
-  customer: Customer;
+  customer: number;
 
   // MANY Rentals belong to ONE Car
   @ManyToOne(() => Car, (car) => car.rentals)

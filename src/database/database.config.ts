@@ -17,6 +17,7 @@ export const databaseConfig = registerAs('database', () => {
     schema: process.env.DB_SCHEMA || 'dbo',
     entities: [__dirname + '/**/*.entity{.ts,.js}'],
     synchronize: process.env.DB_SYNCHRONIZE === 'true',
+    autoLoadEntities: true,
     logging: process.env.DB_LOGGING === 'true',
     options: {
       encrypt: process.env.DB_ENCRYPT === 'true',

@@ -1,42 +1,42 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  Patch,
+} from '@nestjs/common';
 import { RentalService } from './rental.service';
 import { CreateRentalDto } from './dto/create-rental.dto';
 import { UpdateRentalDto } from './dto/update-rental.dto';
 
-@Controller('rental')
+@Controller('rentals')
 export class RentalController {
   constructor(private readonly rentalService: RentalService) {}
 
-  // Create a new rental
   @Post()
-  async create(@Body() createRentalDto: CreateRentalDto) {
+  create(@Body() createRentalDto: CreateRentalDto) {
     return this.rentalService.create(createRentalDto);
   }
 
-  // Get all rentals
   @Get()
-  async findAll() {
+  findAll() {
     return this.rentalService.findAll();
   }
 
-  // Get a single rental by id
   @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return this.rentalService.findOne(+id);
+  findOne(@Param('id') id: number) {
+    return this.rentalService.findOne(id);
   }
 
-  // Update a rental
   @Patch(':id')
-  async update(
-    @Param('id') id: string,
-    @Body() updateRentalDto: UpdateRentalDto,
-  ) {
-    return this.rentalService.update(+id, updateRentalDto);
+  update(@Param('id') id: number, @Body() updateRentalDto: UpdateRentalDto) {
+    return this.rentalService.update(id, updateRentalDto);
   }
 
-  // Delete a rental
   @Delete(':id')
-  async remove(@Param('id') id: string) {
-    return this.rentalService.remove(+id);
+  remove(@Param('id') id: number) {
+    return this.rentalService.remove(id);
   }
 }

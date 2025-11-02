@@ -1,0 +1,40 @@
+### Create a new Car
+POST http://localhost:3001/car
+Content-Type: application/json
+
+{
+  "carModel": "Corolla",
+  "Manufacturer": "Toyota",
+  "year": "2022",
+  "color": "Silver",
+  "RentalRate": "4500",
+  "availabilityStatus": true,
+  "location_id": 1
+}
+
+###
+
+### Get all Cars
+GET http://localhost:3001/cars
+
+###
+
+### Get a single Car by ID
+GET http://localhost:1/cars/1
+
+###
+
+### Update a Car
+PATCH http://localhost:3000/cars/1
+Content-Type: application/json
+
+{
+  "color": "Black",
+  "RentalRate": "5000"
+}
+
+###
+
+### Delete a Car
+DELETE http://localhost:3000/cars/1
+

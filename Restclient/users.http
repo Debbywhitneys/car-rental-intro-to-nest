@@ -1,0 +1,35 @@
+POST http://localhost:3001/users
+Content-Type: application/json
+
+{
+  "email": "hopemetto@example.com",
+  "password": "password123",
+  "role": "User",
+  "customer": {
+    "first_name": "Hope",
+    "last_name": "Metto",
+    "phone_number": "0712345678",
+    "address": "Chuka, Kenya"
+  }
+}
+
+###
+# Get all users
+GET http://localhost:3001/users
+
+###
+# Get one user
+GET http://localhost:3001/users/3
+
+###
+# Update user
+PATCH http://localhost:3001/users/2
+Content-Type: application/json
+
+{
+  "password": "newpassword123"
+}
+
+###
+# Delete user
+DELETE http://localhost:3000/users/1
